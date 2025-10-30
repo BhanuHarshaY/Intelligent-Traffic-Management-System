@@ -25,81 +25,8 @@ Model Training: Roboflow
 Programming Language: Python 3.8+
 Additional Libraries: NumPy, Dlib, Threading
 
-📁 Project Structure
-intelligent-traffic-management/
-├── 📂 src/
-│   ├── main.py                 # Main application entry point
-│   ├── detect_vehicles.py      # Vehicle detection module
-│   ├── emergency_detection.py  # Emergency vehicle detection
-│   └── signal_controller.py    # Traffic signal timing logic
-├── 📂 models/
-│   ├── yolov7.pt               # Pre-trained YOLOv7 model
-│   └── emergency_vehicles.pt   # Custom trained model for emergency vehicles
-├── 📂 dataset/
-│   ├── train/                  # Training dataset
-│   ├── valid/                  # Validation dataset
-│   └── test/                   # Test dataset
-├── 📂 docs/
-│   ├── paper.pdf              # Research paper
-│   └── presentation.pdf       # Project presentation
-├── requirements.txt
-└── README.md
-🚀 Getting Started
-Prerequisites
 
-Python 3.8 or higher
-CUDA-compatible GPU (recommended for real-time processing)
-Webcam or video input source
 
-Installation
-
-Clone the repository
-
-bash   git clone https://github.com/yourusername/intelligent-traffic-management.git
-   cd intelligent-traffic-management
-
-Create a virtual environment
-
-bash   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-Install dependencies
-
-bash   pip install -r requirements.txt
-
-Download YOLOv7 weights
-
-bash   wget https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7.pt
-   mv yolov7.pt models/
-Usage
-
-Run the main application
-
-bash   python src/main.py --source path/to/video.mp4
-
-For webcam input
-
-bash   python src/main.py --source 0
-
-With custom configuration
-
-bash   python src/main.py --source video.mp4 --conf-thres 0.5 --device cuda
-📊 System Architecture
-mermaidgraph TD
-    A[Start] --> B[Initialize Timer]
-    B --> C[Capture Video from 4 Lanes]
-    C --> D[Video Preprocessing]
-    D --> E[YOLOv7 Object Detection]
-    E --> F[Count Vehicle Density]
-    F --> G{Density > Threshold?}
-    G -->|No| C
-    G -->|Yes| H[Check Priorities]
-    H --> I{Emergency Vehicle?}
-    I -->|Yes| J[Set Priority Green Signal]
-    I -->|No| K[Set Timer Based on Density]
-    J --> L[Update Signal]
-    K --> L
-    L --> C
 📈 Performance Metrics
 MetricValueVehicle Detection Accuracy95.6%Emergency Vehicle Detection98.2%Processing Speed30 FPSAverage Response Time< 2 secondsTraffic Flow Improvement40%
 🔬 Model Training
